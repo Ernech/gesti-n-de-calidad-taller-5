@@ -65,13 +65,13 @@ private int  pisoPersona;
     @Test
     public void verificarPrimeraLLamadaDesdeUnPisoDiferente()  throws Exception{
         ascensor.iniciarAscensor();//Ascensor en el piso 1
-        ascensor.usarAscensor(3,2); //Persona en el piso 2 seleccionando el piso 1
-        assertEquals(false,ascensor.ascensorYPersonaEnMismoPiso(2)); //Ascensor llegando desde el piso 1
+        ascensor.usarAscensor(3,2); //Persona en el piso 2 seleccionando el piso 3
+        assertEquals(false,ascensor.ascensorYPersonaEnMismoPiso(2)); //Ascensor llegando desde el piso 2 al piso 3
     }
     @Test
     public void ascensorTerminaRecorridoConLaPuertaCerrada()  throws Exception{
         ascensor.iniciarAscensor();//Ascensor en el piso 1 con la puerta cerrada
-        ascensor.usarAscensor(3,1); //Persona en el piso 1 seleccionando el piso 1
+        ascensor.usarAscensor(3,1); //Persona en el piso 1 seleccionando el piso 3
         assertEquals(true,ascensor.getPuertaCerrada()); //Ascensor llegando al  el piso 3
         ascensor.usarAscensor(1,2); //Persona en el piso 2 seleccionando el piso 1
         assertEquals(true,ascensor.getPuertaCerrada()); //Ascensor llegando al  el piso 3
@@ -79,7 +79,7 @@ private int  pisoPersona;
     @Test
     public void ascensorTerminaRecorridoConEnElPisoSeleccionado()  throws Exception{
         ascensor.iniciarAscensor();//Ascensor en el piso 1 con la puerta cerrada
-        ascensor.usarAscensor(3,1); //Persona en el piso 1 seleccionando el piso 1
+        ascensor.usarAscensor(3,1); //Persona en el piso 1 seleccionando el piso 3
         assertEquals(3,ascensor.getPiso()); //Ascensor en el piso 3
         ascensor.usarAscensor(2,3); //Persona y ascensor en el piso 3, persona selecciona el piso 2
         assertEquals(2,ascensor.getPiso()); //Ascensor en el  el piso 2
